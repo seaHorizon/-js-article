@@ -1,0 +1,194 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:XML与json</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<p>#什么是XML？</p>
+<ol>
+<li>XML即ExtentsibleMarkupLanguage(可扩展标记语言)，是用于网络上交互的一种语言，类似于HTML
+它的宗旨是用来传输数据，具有自我描述性</li>
+<li>首行
+ <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
+<li>语法规则：<ol>
+<li>必须有一个根元素</li>
+<li>不可有空格，不可以以数字或.开头 大小写敏感</li>
+<li>不可以交叉嵌套</li>
+<li>属性双引号（浏览器会自动修改成双引号）</li>
+<li>注释和HTML一样</li>
+</ol>
+</li>
+<li>总结：虽然XML可以描述和传输复杂数据，但是因其解析过于复杂并且体积较大，所以实现开发已经很少使用了</li>
+</ol>
+<p>#什么是json？</p>
+<ol>
+<li>json即JavaScript Object Notation,是另一种轻量级的文本数据交换格式，独立于语言</li>
+<li>json的优点是什么？   <ol>
+<li>轻量级的数据交互格式</li>
+<li>可以形成复杂的嵌套格式</li>
+<li>解析非常方便</li>
+<li>易于读写，占用带宽小</li>
+</ol>
+</li>
+<li><p>json的基本语法形式
+ <code>var arrJson = [{&quot;name&quot;:&quot;xiaoming&quot;,&quot;age&quot;:18},{&quot;name&quot;:&quot;xiaoli&quot;,&quot;age&quot;:16}]</code>
+ <code>var strJson = {&quot;name&quot;:&quot;seapeak&quot;,&quot;age&quot;:18}</code></p>
+<p> 注：json的书写方式和js的对象字面量的书写“基本相似”，较js对象来说更加的严格</p>
+</li>
+<li>JSON的缺点
+　　1. 没有XML格式这么推广的深入人心和喜用广泛，没有XML那么通用性；
+　　2. JSON格式目前在Web Service中推广还属于初级阶段。</li>
+</ol>
+<p>#什么是HTML？</p>
+<ol>
+<li>HTML即Hyper Text Markup Language（超文本标记语言），是一种基于web的网页设计语言</li>
+</ol>
+<p>#XML与json的优缺点</p>
+<ol>
+<li>可读性方面。
+JSON和XML的数据可读性基本相同，JSON和XML的可读性可谓不相上下，一边是建议的语法，一边是规范的标签形式，XML可读性较好些。</li>
+<li>可扩展性方面。
+XML天生有很好的扩展性，JSON当然也有，没有什么是XML能扩展，JSON不能的。</li>
+<li>编码难度方面。
+XML有丰富的编码工具，比如Dom4j、JDom等，JSON也有json.org提供的工具，但是JSON的编码明显比XML容易许多，即使不借助工具也能写出JSON的代码，可是要写好XML就不太容易了。</li>
+<li>解码难度方面。
+XML的解析得考虑子节点父节点，让人头昏眼花，而JSON的解析难度几乎为0。这一点XML输的真是没话说。</li>
+<li>流行度方面。
+XML已经被业界广泛的使用，而JSON才刚刚开始，但是在Ajax这个特定的领域，未来的发展一定是XML让位于JSON。到时Ajax应该变成Ajaj(Asynchronous Javascript and JSON)了。</li>
+<li>解析手段方面。
+JSON和XML同样拥有丰富的解析手段。</li>
+<li>数据体积方面。
+JSON相对于XML来讲，数据的体积小，传递的速度更快些。</li>
+<li>数据交互方面。
+JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</li>
+<li>数据描述方面。
+JSON对数据的描述性比XML较差。</li>
+<li>传输速度方面。
+JSON的速度要远远快于XML。</li>
+</ol>
+<p>#XML与HTML的区别
+xml和html都是用于操作数据或数据结构，在结构上大致是相同的，但它们在本质上却存在着明显的区别。综合网上的各种资料总结如下。</p>
+<ol>
+<li><p>语法要求不同：</p>
+<ol>
+<li><p>在html中不区分大小写，在xml中严格区分。</p>
+</li>
+<li><p>在HTML中，有时不严格，如果上下文清楚地显示出段落或者列表键在何处结尾，那么你可以省略</p>或者</li>之类的结束标记。在XML中，是严格的树状结构，绝对不能省略掉结束标记。</p>
+</li>
+<li><p>在XML中，拥有单个标记而没有匹配的结束标记的元素必须用一个/ 字符作为结尾。这样分析器就知道不用查找结束标记了。</p>
+</li>
+<li><p>在XML中，属性值必须分装在引号中。在HTML中，引号是可用可不用的。 </p>
+</li>
+<li><p>在HTML中，可以拥有不带值的属性名。在XML中，所有的属性都必须带有相应的值。 </p>
+</li>
+<li><p>在XML文档中，空白部分不会被解析器自动删除；但是html是过滤掉空格的。</p>
+</li>
+</ol>
+</li>
+<li><p>标记不同：</p>
+<ol>
+<li><p>html使用固有的标记；而xml没有固有的标记。</p>
+</li>
+<li><p>Html标签是预定义的；XML标签是免费的、自定义的、可扩展的。</p>
+</li>
+</ol>
+</li>
+<li><p>作用不同：</p>
+<ol>
+<li><p>html是用来显示数据的；xml是用来描述数据、存放数据的，所以可以作为持久化的介质！Html将数据和显示结合在一起，在页面中把这数据显示出来；xml</p>
+<p>则将数据和显示分开。 XML被设计用来描述数据，其焦点是数据的内容。HTML被设计用来显示数据，其焦点是数据的外观。</p>
+</li>
+<li><p>xml不是HTML的替代品，xml和html是两种不同用途的语言。 XML 不是要替换 HTML；实际上XML 可以视作对 HTML 的补充。XML 和HTML 的目标不同HTML 的设计目标是显示数据并集中于数据外观，而XML的设计目标是描述数据并集中于数据的内容。</p>
+</li>
+<li><p>没有任何行为的XML。与HTML 相似，XML 不进行任何操作。（共同点）</p>
+</li>
+<li><p>对于XML最好的形容可能是: XML是一种跨平台的，与软、硬件无关的，处理与传输信息的工具。</p>
+</li>
+<li><p>XML未来将会无所不在。XML将成为最普遍的数据处理和数据传输的工具。</p>
+</li>
+</ol>
+</li>
+</ol>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
